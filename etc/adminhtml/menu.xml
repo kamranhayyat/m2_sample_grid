@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="SMP_Grid::manager" title="SMP" module="SMP_Grid" sortOrder="10" resource="SMP_Grid::manager"/>
+    	<add id="SMP_Grid::add_row" title="SMP Category" module="SMP_Grid" sortOrder="20" parent="SMP_Grid::manager" action="grid/grid" resource="SMP_Grid::add_row"/>
+    	<add id="SMP_Grid::add_row_sub" title="SMP SubCategory" module="SMP_Grid" sortOrder="30" parent="SMP_Grid::manager" action="grid/subgrid" resource="SMP_Grid::add_row_sub"/>
+    </menu>
+</config>

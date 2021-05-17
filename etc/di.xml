@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SMP\Grid\Api\Data\SmpCategoryInterface" type="SMP\Grid\Model\SmpCategory" />
+ 
+    <virtualType name="SMP\Grid\Model\ResourceModel\SmpCategory\SmpCategory\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">smpmarketplace_category</argument>
+            <argument name="resourceModel" xsi:type="string">SMP\Grid\Model\ResourceModel\SmpCategory</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="grid_record_grid_list_data_source" xsi:type="string">SMP\Grid\Model\ResourceModel\SmpCategory\SmpCategory\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="SMP\Grid\Model\ResourceModel\SmpSubCategory\SmpSubCategory\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">smpmarketplace_category</argument>
+            <argument name="resourceModel" xsi:type="string">SMP\Grid\Model\ResourceModel\SmpSubCategory</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="grid_record_subgrid_list_data_source" xsi:type="string">SMP\Grid\Model\ResourceModel\SmpSubCategory\SmpSubCategory\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="SMP\Grid\Ui\DataProvider\ListingDataProvider">
+        <plugin name="dev_grid_attributes" type="SMP\Grid\Plugin\AddAttributesToUiDataProvider"/>
+    </type>
+
+     <type name="SMP\Grid\Ui\DataProvider\ListingDataProviderSubGrid">
+        <plugin name="dev_grid_attributes_subgrid" type="SMP\Grid\Plugin\AddAttributesToUiDataProviderSubGrid"/>
+    </type>
+</config>
